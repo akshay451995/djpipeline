@@ -9,7 +9,7 @@ pipeline{
         stage("build image from Dockerfile"){
             steps{
                 script{
-                    sh "docker build -t akshay451995/myimage2 ."
+                    sh "docker build -t akshay451995/myimage3 ."
                 }
             }
         }
@@ -19,21 +19,21 @@ pipeline{
                     withCredentials([string(credentialsId: 'dockerhubp', variable: 'dockerhubp')]) {
                     sh "docker login -u akshay451995 -p ${dockerhubp}"
 }
-                    sh "docker push akshay451995/myimage2"
+                    sh "docker push akshay451995/myimage3"
                 }
             }
         }
         stage("pull the image from dockerhub"){
             steps{
                 script{
-                    sh "docker pull akshay451995/myimage2"
+                    sh "docker pull akshay451995/myimage3"
                 }
             }
         }
         stage("build container from the image"){
             steps{
                 script{
-                    sh "docker run -dit --name container2 akshay451995/myimage2"
+                    sh "docker run -dit --name container3 akshay451995/myimage3"
                 }
             }
         }

@@ -1,3 +1,3 @@
-FROM centos
-RUN echo "Built container2 successfully" > file1
+FROM ubuntu
+RUN echo "Built container3 successfully" > file1
 
